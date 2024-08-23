@@ -7,6 +7,7 @@ import Home from "./pages/home/Home";
 import SingleBook from "./pages/singleBook/SingleBook";
 import Navbar from "./pages/components/Navbar/Navbar";
 import AddBook from "./pages/addBook/AddBook";
+import Edit from "./pages/edit/Edit";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/singlebook/:id" element={<SingleBook />} />
           <Route path="/addBook" element={<AddBook />} />
+          <Route path="/edit/:id" element={<Edit />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -1,11 +1,20 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const SingleBook = () => {
   const [book, setBook] = useState(null);
+  const navigate = useNavigate();
 
   const { id } = useParams();
+  const handleDelete = async () => {
+    const response = await axios.delete(`http://localhost:3000/book/${id}`);
+    if (response.status === 200) {
+      return navigate("/");
+    } else {
+      alert(response?.data?.message);
+    }
+  };
 
   const fetchSingleBook = async () => {
     const response = await axios.get(`http://localhost:3000/book/${id}`);
@@ -54,6 +63,10 @@ const SingleBook = () => {
                 <span className="font-semibold">Published At:</span>{" "}
                 {book.publishedAt}
               </p>
+              <button onClick={handleDelete}>Delete</button>
+              <Link to={`/edit/${book._id}`}>
+                <button>Edit</button>
+              </Link>
             </div>
           </div>
         </div>
