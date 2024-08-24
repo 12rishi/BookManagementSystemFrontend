@@ -25,7 +25,7 @@ const Edit = () => {
     });
     formData.append("image", image);
     const response = await axios.patch(
-      `http://localhost:3000/book/${id}`,
+      `https://bookmanagementsystem-hc9x.onrender.com/book/${id}`,
       formData
     );
     if (response.status === 200) {
@@ -35,7 +35,9 @@ const Edit = () => {
     }
   };
   const fetchBook = async () => {
-    const response = await axios.get(`http://localhost:3000/book/${id}`);
+    const response = await axios.get(
+      `https://bookmanagementsystem-hc9x.onrender.com/book/${id}`
+    );
     console.log(response.data.data);
 
     setDatas(response.data.data);

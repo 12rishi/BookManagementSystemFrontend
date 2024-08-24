@@ -8,7 +8,9 @@ const SingleBook = () => {
 
   const { id } = useParams();
   const handleDelete = async () => {
-    const response = await axios.delete(`http://localhost:3000/book/${id}`);
+    const response = await axios.delete(
+      `https://bookmanagementsystem-hc9x.onrender.com//book/${id}`
+    );
     if (response.status === 200) {
       return navigate("/");
     } else {
@@ -17,7 +19,9 @@ const SingleBook = () => {
   };
 
   const fetchSingleBook = async () => {
-    const response = await axios.get(`http://localhost:3000/book/${id}`);
+    const response = await axios.get(
+      `https://bookmanagementsystem-hc9x.onrender.com//book/${id}`
+    );
     setBook(response.data.data);
   };
 

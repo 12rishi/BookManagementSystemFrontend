@@ -6,7 +6,9 @@ import axios from "axios";
 const Home = () => {
   const [book, setBook] = useState([]);
   const fetchBook = async () => {
-    const response = await axios.get("http://localhost:3000/book");
+    const response = await axios.get(
+      "https://bookmanagementsystem-hc9x.onrender.com/book"
+    );
     console.log(response.data.data);
 
     setBook(response.data.data);
